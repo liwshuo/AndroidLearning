@@ -16,6 +16,7 @@ public class TransitionActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_transition);
         twoActivityTransitionButton = (Button) findViewById(R.id.twoActivityTransitionButton);
         twoActivityTransitionButton.setOnClickListener(this);
+
     }
 
     @Override

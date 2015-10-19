@@ -17,6 +17,9 @@
             android:text="twoViewSwitch"
             android:background="@color/buttonColor"
             android:textColor="@color/buttonTextColor"/>
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent"/>
         <Button
             android:id="@+id/transitionButton"
             android:layout_width="0dp"
