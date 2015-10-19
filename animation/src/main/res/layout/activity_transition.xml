@@ -22,10 +22,11 @@
             android:layout_width="5dp"
             android:layout_height="match_parent"/>
         <Button
-            android:id="@+id/transitionButton"
+            android:id="@+id/shareElementButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:text="shareElement"
             android:background="@color/buttonColor"
             android:textColor="@color/buttonTextColor"/>
     </LinearLayout>

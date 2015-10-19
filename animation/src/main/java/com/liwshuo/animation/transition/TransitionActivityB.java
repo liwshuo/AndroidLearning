@@ -24,6 +24,9 @@ public class TransitionActivityB extends AppCompatActivity {
             getWindow().setEnterTransition(enter);
             Transition exit = new Slide();
             getWindow().setExitTransition(exit);
+            Transition shareElementEnter = new Explode();
+            shareElementEnter.setDuration(2000);
+            getWindow().setSharedElementEnterTransition(shareElementEnter);
         }else {
 
         }

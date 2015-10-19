@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.liwshuo.animation.transition.ShareElementActivityA">
+
+    <ImageView
+        android:id="@+id/imageViewA"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/imagea"
+        android:layout_alignParentLeft="true"
+        android:transitionName="imageViewA"/>
+    <ImageView
+        android:id="@+id/imageViewB"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/imageb"
+        android:layout_toRightOf="@id/imageViewA"/>
+</RelativeLayout>

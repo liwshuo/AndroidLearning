@@ -10,13 +10,15 @@ import com.liwshuo.animation.R;
 
 public class TransitionActivity extends AppCompatActivity implements View.OnClickListener{
     Button twoActivityTransitionButton;
+    Button shareElementButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transition);
         twoActivityTransitionButton = (Button) findViewById(R.id.twoActivityTransitionButton);
+        shareElementButton = (Button) findViewById(R.id.shareElementButton);
         twoActivityTransitionButton.setOnClickListener(this);
-
+        shareElementButton.setOnClickListener(this);
     }
 
     @Override
@@ -26,9 +28,9 @@ public class TransitionActivity extends AppCompatActivity implements View.OnClic
             case R.id.twoActivityTransitionButton:
                 intent.setClass(TransitionActivity.this, TransitionActivityA.class);
                 break;
-         /*   case R.id.transitionButton:
-                intent.setClass(TransitionActivity.this, TransitionActivity.class);
-                break;*/
+            case R.id.shareElementButton:
+                intent.setClass(TransitionActivity.this, ShareElementActivity.class);
+                break;
         }
         startActivity(intent);
     }

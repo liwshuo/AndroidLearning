@@ -49,6 +49,9 @@ public class TransitionActivityA extends AppCompatActivity implements View.OnCli
                     reenter = new Slide();
                     ((Slide) reenter).setSlideEdge(Gravity.LEFT);
                     getWindow().setReenterTransition(reenter);
+                   // Transition shareElementEnter = new Slide();
+                 //   shareElementEnter.setDuration(2000);
+                //    getWindow().setSharedElementExitTransition(shareElementEnter);
                     break;
                 case R.id.slideButton:
                     break;
