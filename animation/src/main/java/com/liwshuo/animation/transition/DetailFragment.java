@@ -17,16 +17,17 @@ import java.util.List;
 
 
 public class DetailFragment extends Fragment {
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        List<Integer> data = new ArrayList<>();
+    static List<Integer> data = new ArrayList<>();
+    static {
         data.add(R.drawable.imagea);
         data.add(R.drawable.imageb);
         data.add(R.drawable.imagec);
         data.add(R.drawable.imaged);
         data.add(R.drawable.imagee);
         data.add(R.drawable.imagef);
+    }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Bundle bundle = getArguments();
         String transitionName = "";
         int id = 0;

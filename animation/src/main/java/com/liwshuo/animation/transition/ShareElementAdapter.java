@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.liwshuo.animation.ImageLoader;
 import com.liwshuo.animation.R;
 
 import java.util.ArrayList;
@@ -28,17 +30,18 @@ import java.util.List;
 public class ShareElementAdapter extends RecyclerView.Adapter implements View.OnClickListener {
 
     Activity context;
-    List<Integer> data;
-
-    public ShareElementAdapter(Activity context) {
-        this.context = context;
-        data = new ArrayList<>();
+    static List<Integer> data = new ArrayList<>();
+    static{
         data.add(R.drawable.imagea);
         data.add(R.drawable.imageb);
         data.add(R.drawable.imagec);
         data.add(R.drawable.imaged);
-        data.add(R.drawable.imagee);
-        data.add(R.drawable.imagef);
+   //    data.add(R.drawable.imagee);
+   //     data.add(R.drawable.imagef);
+    }
+
+    public ShareElementAdapter(Activity context) {
+        this.context = context;
     }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -48,28 +51,33 @@ public class ShareElementAdapter extends RecyclerView.Adapter implements View.On
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         System.out.println(position);
-        ((MyViewHolder) holder).shareImage.setImageDrawable(context.getDrawable(data.get(position)));
-        ((MyViewHolder) holder).shareImage.setTransitionName("image" + position);
+        ImageView shareImage = ((MyViewHolder) holder).shareImage;
+        ImageLoader.getInstance(context).load(data.get(position), shareImage);
+        shareImage.setTransitionName("image" + position);
         ((MyViewHolder) holder).imageName.setText("iamge" + position);
-        ((MyViewHolder) holder).shareImage.setOnClickListener(new View.OnClickListener(){
+        shareImage.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(context, ShareElementDetailActivity.class);
                 Bundle bundle = new Bundle();
-            //    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            //        bundle = ActivityOptions.makeSceneTransitionAnimation(context, new Pair<View, String>(view, "shareImage")).toBundle();
-           //     }
                 bundle.putString("transitionName", view.getTransitionName());
+                System.out.println("id=" + position);
                 bundle.putInt("id", position);
+                Bundle options = ActivityOptions.makeSceneTransitionAnimation(context, new Pair<View, String>(view, view.getTransitionName())).toBundle();
+                intent.putExtras(bundle);
+                context.startActivity(intent, options);
+             /*   bundle.putInt("id", position);
                 Fragment detailFragment = new DetailFragment();
                 detailFragment.setArguments(bundle);
                 detailFragment.setSharedElementEnterTransition(TransitionInflater.from(context).inflateTransition(R.transition.image_change));
             //    detailFragment.setEnterTransition(TransitionInflater.from(context).inflateTransition(android.R.transition.fade));
                 FragmentManager fragmentManager = context.getFragmentManager();
+                Fragment listFragment = fragmentManager.findFragmentByTag("listFragment");
                 fragmentManager.beginTransaction().addToBackStack("shareElement")
-                        .replace(R.id.container, detailFragment).addSharedElement(view, view.getTransitionName()).commit();
+                        .add(R.id.container, detailFragment).hide(listFragment).addSharedElement(view, view.getTransitionName()).commit();
+                System.out.println("fragment stack count:" + fragmentManager.getBackStackEntryCount());*/
             }
         });
     }
@@ -86,25 +94,7 @@ public class ShareElementAdapter extends RecyclerView.Adapter implements View.On
         Bundle bundle = new Bundle();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             bundle = ActivityOptions.makeSceneTransitionAnimation(context, new Pair<View, String>(view, "shareImage")).toBundle();
-        } else {
-
         }
-   /*     switch (view.getId) {
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-        }*/
         context.startActivity(intent, bundle);
     }
 
@@ -113,7 +103,6 @@ public class ShareElementAdapter extends RecyclerView.Adapter implements View.On
         public TextView imageName;
         public MyViewHolder(View itemView) {
             super(itemView);
-
             shareImage = (ImageView) itemView.findViewById(R.id.shareImage);
             imageName = (TextView) itemView.findViewById(R.id.imageName);
         }
