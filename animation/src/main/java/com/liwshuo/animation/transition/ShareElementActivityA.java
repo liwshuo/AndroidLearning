@@ -14,6 +14,7 @@ import android.util.Pair;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.liwshuo.animation.R;
 
@@ -21,6 +22,7 @@ public class ShareElementActivityA extends AppCompatActivity implements View.OnC
 
     ImageView imageViewA;
     ImageView imageViewB;
+    TextView textViewA;
     /**
      * 默认
      */
@@ -38,8 +40,10 @@ public class ShareElementActivityA extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_share_element_activity_a);
         imageViewA = (ImageView) findViewById(R.id.imageViewA);
         imageViewB = (ImageView) findViewById(R.id.imageViewB);
+        textViewA = (TextView) findViewById(R.id.textViewA);
         imageViewA.setOnClickListener(this);
         imageViewB.setOnClickListener(this);
+        textViewA.setOnClickListener(this);
 
     //    Transition imageViewTransiton = TransitionInflater.from(this).inflateTransition(R.transition.image_change);
     //    getWindow().setSharedElementExitTransition(imageViewTransiton);
@@ -64,6 +68,9 @@ public class ShareElementActivityA extends AppCompatActivity implements View.OnC
                 intent.putExtra("drawable", R.drawable.imageb);
                 bundle = ActivityOptions.makeSceneTransitionAnimation(ShareElementActivityA.this, new Pair<View, String>(imageViewB, imageViewB.getTransitionName())).toBundle();
                 break;
+            case R.id.textViewA:
+                bundle = ActivityOptions.makeSceneTransitionAnimation(ShareElementActivityA.this, new Pair<View, String>(textViewA, textViewA.getTransitionName())).toBundle();
+
         }
         intent.setClass(ShareElementActivityA.this, ShareElementActivityB.class);
         startActivity(intent,bundle);

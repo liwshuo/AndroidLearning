@@ -108,4 +108,30 @@
             android:background="@color/buttonColor"
             android:textColor="@color/buttonTextColor"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp">
+        <Button
+            android:id="@+id/twoFragmentTransitionButton1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="null"
+            android:textAllCaps="false"
+            android:background="@color/buttonColor"
+            android:textColor="@color/buttonTextColor"/>
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/textViewButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textAllCaps="false"
+            android:background="@color/buttonColor"
+            android:textColor="@color/buttonTextColor"/>
+    </LinearLayout>
 </LinearLayout>

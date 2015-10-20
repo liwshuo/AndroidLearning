@@ -42,23 +42,26 @@ public class ShareElementGridFragmentAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+        System.out.println("onBindViewHolder");
         final ImageView shareImage = ((MyViewHolder) holder).shareImage;
         ImageLoader.getInstance(context).load(data.get(position), shareImage);
         shareImage.setTransitionName("image" + position);
         ((MyViewHolder) holder).imageName.setText("image" + position);
-        shareImage.setOnClickListener(new View.OnClickListener(){
+        shareImage.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putInt(ConstantValue.ID, position);
-                bundle.putString(ConstantValue.TRANSITION_NAME, shareImage.getTransitionName());
+                bundle.putString(ConstantValue.TRANSITION_IMAGE_NAME, shareImage.getTransitionName());
                 Fragment detailFragment = new DetailFragment();
                 detailFragment.setArguments(bundle);
+                detailFragment.setSharedElementEnterTransition(TransitionInflater.from(context).inflateTransition(R.transition.image_change));
                 FragmentManager fragmentManager = context.getFragmentManager();
                 Fragment gridFragment = fragmentManager.findFragmentByTag(ConstantValue.GRID_FRAGMENT_NAME);
                 fragmentManager.beginTransaction().addToBackStack(ConstantValue.SHARE_ELEMENT_FRAGMENT_BACK_STACK)
-                        .add(R.id.container, detailFragment).hide(gridFragment).addSharedElement(view, view.getTransitionName()).commit();
+                        .add(R.id.container, detailFragment).hide(gridFragment)
+                        .addSharedElement(view, view.getTransitionName()).commit();
                 System.out.println("fragment stack count:" + fragmentManager.getBackStackEntryCount());
             }
         });
@@ -66,7 +69,7 @@ public class ShareElementGridFragmentAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return data.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

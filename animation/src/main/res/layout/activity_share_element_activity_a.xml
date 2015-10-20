@@ -21,4 +21,12 @@
         android:src="@drawable/imageb"
         android:layout_toRightOf="@id/imageViewA"
         android:transitionName="@string/transitionName_imageB"/>
+    <TextView
+        android:id="@+id/textViewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test"
+        android:layout_below="@id/imageViewA"
+        android:transitionName="textViewA"
+        android:background="@color/textViewColor"/>
 </RelativeLayout>

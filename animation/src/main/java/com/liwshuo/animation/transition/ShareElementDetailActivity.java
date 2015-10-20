@@ -11,6 +11,7 @@ import android.transition.TransitionInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.liwshuo.animation.R;
 import com.liwshuo.animation.util.ConstantValue;
@@ -22,9 +23,12 @@ import java.util.List;
 public class ShareElementDetailActivity extends AppCompatActivity {
 
     private ImageView shareImage;
+    private TextView imageName;
     private List<Integer> data;
     private int id;
-    private String transitionName;
+    private String transitionImageName;
+    private String transitionTextName;
+    private String transitionTextValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,7 @@ public class ShareElementDetailActivity extends AppCompatActivity {
         setTransition();
         getDataFromList();
         initShareImage();
+        initImageName();
     }
 
     private void initData() {
@@ -52,16 +57,26 @@ public class ShareElementDetailActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             id = bundle.getInt(ConstantValue.ID,0);
-            transitionName = bundle.getString(ConstantValue.TRANSITION_NAME);
+            transitionImageName = bundle.getString(ConstantValue.TRANSITION_IMAGE_NAME);
+            transitionTextName = bundle.getString(ConstantValue.TRANSITION_TEXT_NAME);
+            transitionTextValue = bundle.getString(ConstantValue.TRANSITION_TEXT_VALUE);
         }else {
             id = 0;
-            transitionName = null;
+            transitionImageName = null;
+            transitionTextName = null;
+            transitionTextValue = "image";
         }
     }
 
     private void initShareImage() {
         shareImage = (ImageView) findViewById(R.id.shareImage);
-        shareImage.setTransitionName(transitionName);
+        shareImage.setTransitionName(transitionImageName);
         shareImage.setImageBitmap(BitmapFactory.decodeResource(getResources(), data.get(id)));
+    }
+
+    private void initImageName() {
+        imageName = (TextView) findViewById(R.id.imageName);
+        imageName.setTransitionName(transitionTextName);
+        imageName.setText(transitionTextValue);
     }
 }

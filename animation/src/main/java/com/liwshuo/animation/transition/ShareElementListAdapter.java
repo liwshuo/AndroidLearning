@@ -18,6 +18,8 @@ import com.liwshuo.animation.util.Data;
 import com.liwshuo.animation.util.ImageLoader;
 import com.liwshuo.animation.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,10 +43,12 @@ public class ShareElementListAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         System.out.println(position);
-        ImageView shareImage = ((MyViewHolder) holder).shareImage;
+        final ImageView shareImage = ((MyViewHolder) holder).shareImage;
+        final TextView imageName =  ((MyViewHolder) holder).imageName;
         ImageLoader.getInstance(context).load(data.get(position), shareImage);
         shareImage.setTransitionName("image" + position);
-        ((MyViewHolder) holder).imageName.setText("iamge" + position);
+        imageName.setTransitionName("text" + position);
+        ((MyViewHolder) holder).imageName.setText("image" + position);
         shareImage.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -52,22 +56,15 @@ public class ShareElementListAdapter extends RecyclerView.Adapter {
                 Intent intent = new Intent();
                 intent.setClass(context, ShareElementDetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString(ConstantValue.TRANSITION_NAME, view.getTransitionName());
-                System.out.println("id=" + position);
+                bundle.putString(ConstantValue.TRANSITION_IMAGE_NAME, shareImage.getTransitionName());
+                bundle.putString(ConstantValue.TRANSITION_TEXT_NAME, imageName.getTransitionName());
+                bundle.putString(ConstantValue.TRANSITION_TEXT_VALUE, imageName.getText().toString());
                 bundle.putInt(ConstantValue.ID, position);
-                Bundle options = ActivityOptions.makeSceneTransitionAnimation(context, new Pair<View, String>(view, view.getTransitionName())).toBundle();
+                Bundle options = ActivityOptions.makeSceneTransitionAnimation(context,
+                        new Pair<View, String>(shareImage, shareImage.getTransitionName()),
+                        new Pair<View,String>(imageName, imageName.getTransitionName())).toBundle();
                 intent.putExtras(bundle);
                 context.startActivity(intent, options);
-             /*   bundle.putInt("id", position);
-                Fragment detailFragment = new DetailFragment();
-                detailFragment.setArguments(bundle);
-                detailFragment.setSharedElementEnterTransition(TransitionInflater.from(context).inflateTransition(R.transition.image_change));
-            //    detailFragment.setEnterTransition(TransitionInflater.from(context).inflateTransition(android.R.transition.fade));
-                FragmentManager fragmentManager = context.getFragmentManager();
-                Fragment listFragment = fragmentManager.findFragmentByTag("listFragment");
-                fragmentManager.beginTransaction().addToBackStack("shareElement")
-                        .add(R.id.container, detailFragment).hide(listFragment).addSharedElement(view, view.getTransitionName()).commit();
-                System.out.println("fragment stack count:" + fragmentManager.getBackStackEntryCount());*/
             }
         });
     }

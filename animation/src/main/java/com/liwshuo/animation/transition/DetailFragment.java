@@ -5,6 +5,8 @@ import android.app.FragmentManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,7 @@ public class DetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         initData();
+   //     setTransition();
         getDataFromGridFragment();
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
         initFragmentView(view);
@@ -35,10 +38,16 @@ public class DetailFragment extends Fragment {
         data = Data.getImageList();
     }
 
+    private void setTransition() {
+        Transition transition = TransitionInflater.from(getActivity()).inflateTransition(R.transition.image_change);
+        setSharedElementEnterTransition(transition);
+
+    }
+
     private void getDataFromGridFragment() {
         Bundle bundle = getArguments();
         if (bundle != null) {
-            transitionName = bundle.getString(ConstantValue.TRANSITION_NAME);
+            transitionName = bundle.getString(ConstantValue.TRANSITION_IMAGE_NAME);
             id = bundle.getInt(ConstantValue.ID);
         }else {
             transitionName = null;

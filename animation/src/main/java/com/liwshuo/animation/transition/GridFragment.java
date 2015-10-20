@@ -14,11 +14,13 @@ import com.liwshuo.animation.R;
 
 
 public class GridFragment extends Fragment {
+    public static final String TAG = GridFragment.class.getSimpleName();
     RecyclerView recyclerView;
     RecyclerView.Adapter shareElementAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        System.out.println(TAG);
         View view = inflater.inflate(R.layout.fragment_grid, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
