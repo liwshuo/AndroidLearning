@@ -1,6 +1,7 @@
 package com.liwshuo.animation.transition;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -37,6 +38,14 @@ public class DetailFragment extends Fragment {
         ImageView shareImage = (ImageView) view.findViewById(R.id.shareImage);
         shareImage.setTransitionName(transitionName);
         shareImage.setImageDrawable(getActivity().getDrawable(data.get(id)));
+        shareImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("share image click");
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.popBackStack();
+            }
+        });
         return view;
     }
 }

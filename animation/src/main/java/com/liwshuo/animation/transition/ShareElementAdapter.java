@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.transition.TransitionInflater;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,8 +65,10 @@ public class ShareElementAdapter extends RecyclerView.Adapter implements View.On
                 bundle.putInt("id", position);
                 Fragment detailFragment = new DetailFragment();
                 detailFragment.setArguments(bundle);
+                detailFragment.setSharedElementEnterTransition(TransitionInflater.from(context).inflateTransition(R.transition.image_change));
+            //    detailFragment.setEnterTransition(TransitionInflater.from(context).inflateTransition(android.R.transition.fade));
                 FragmentManager fragmentManager = context.getFragmentManager();
-                fragmentManager.beginTransaction()
+                fragmentManager.beginTransaction().addToBackStack("shareElement")
                         .replace(R.id.container, detailFragment).addSharedElement(view, view.getTransitionName()).commit();
             }
         });

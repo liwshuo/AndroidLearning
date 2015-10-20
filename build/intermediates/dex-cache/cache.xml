@@ -2,39 +2,39 @@
 <items version="2" >
 
     <item
-        jar="E:\AndroidSDK\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="E:\MyGithub\AndroidLearning\animation\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-f988099b6d47217e76c3f102a0f30bc2f3e0608b.jar" />
-    </item>
-    <item
-        jar="E:\MyGithub\AndroidLearning\animation\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
-        <dex dex="E:\MyGithub\AndroidLearning\animation\build\intermediates\pre-dexed\debug\classes-0bce8097d966977779bfd2aa12173229e0d685db.jar" />
-    </item>
-    <item
-        jar="E:\MyGithub\AndroidLearning\animation\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jar="D:\MyGithub\AndroidLearning\animation\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="E:\MyGithub\AndroidLearning\animation\build\intermediates\pre-dexed\debug\classes-b7b0c3135dbca9bcb3dec7e90b5f12e7f2abaf11.jar" />
+        <dex dex="D:\MyGithub\AndroidLearning\animation\build\intermediates\pre-dexed\debug\classes-9ee802b596efb13acef038ce38bdf6e3453dd244.jar" />
     </item>
     <item
-        jar="E:\MyGithub\AndroidLearning\animation\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jar="D:\MyGithub\AndroidLearning\animation\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="E:\MyGithub\AndroidLearning\animation\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-a7ac7103375b057eddf64803c953d50897370bf9.jar" />
+        <dex dex="D:\MyGithub\AndroidLearning\animation\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-d5925c6e20e6adb218c98aacf85a1c872a2f08b2.jar" />
     </item>
     <item
-        jar="E:\MyGithub\AndroidLearning\animation\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jar="D:\MyGithub\AndroidLearning\animation\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
+        <dex dex="D:\MyGithub\AndroidLearning\animation\build\intermediates\pre-dexed\debug\classes-77ff9aaaa7b51f8b5d66f1858acf789e40a90f3e.jar" />
+    </item>
+    <item
+        jar="E:\Develop\Android SDK\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="D:\MyGithub\AndroidLearning\animation\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-a01334804b93e00ae654d5b6894f3ab36eb3aee6.jar" />
+    </item>
+    <item
+        jar="D:\MyGithub\AndroidLearning\animation\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="E:\MyGithub\AndroidLearning\animation\build\intermediates\pre-dexed\debug\classes-c5a5a7f13d42f05912a58c04afe6b4c7fe5b63d8.jar" />
+        <dex dex="D:\MyGithub\AndroidLearning\animation\build\intermediates\pre-dexed\debug\classes-c8944d07ba52b6354b13627c042c8bb3bf364bc3.jar" />
     </item>
 
 </items>
