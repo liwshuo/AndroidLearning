@@ -1,33 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="com.liwshuo.animation.transition.TransitionActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="commontransition"
+            android:gravity="center"
+            android:background="@color/textViewColor"
+            android:textColor="@color/textViewTextColor"/>
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="shareElement"
+            android:gravity="center"
+            android:background="@color/textViewColor"
+            android:textColor="@color/textViewTextColor"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp">
         <Button
             android:id="@+id/twoActivityTransitionButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="twoActivity"
+            android:text="TwoActivity"
+            android:textAllCaps="false"
             android:background="@color/buttonColor"
             android:textColor="@color/buttonTextColor"/>
         <View
             android:layout_width="5dp"
             android:layout_height="match_parent"/>
         <Button
-            android:id="@+id/shareElementButton"
+            android:id="@+id/listViewButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="shareElement"
+            android:text="RecyclerView"
+            android:textAllCaps="false"
             android:background="@color/buttonColor"
             android:textColor="@color/buttonTextColor"/>
     </LinearLayout>
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp">
+        <Button
+            android:id="@+id/twoFragmentTransitionButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TwoFragment"
+            android:textAllCaps="false"
+            android:background="@color/buttonColor"
+            android:textColor="@color/buttonTextColor"/>
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/imageViewButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="ImageView"
+            android:textAllCaps="false"
+            android:background="@color/buttonColor"
+            android:textColor="@color/buttonTextColor"/>
+    </LinearLayout>
+</LinearLayout>

@@ -13,11 +13,12 @@
         android:layout_height="50dp"
         android:src="@drawable/imagea"
         android:layout_alignParentLeft="true"
-        android:transitionName="imageViewA"/>
+        android:transitionName="@string/transitionName_imageA"/>
     <ImageView
         android:id="@+id/imageViewB"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/imageb"
-        android:layout_toRightOf="@id/imageViewA"/>
+        android:layout_toRightOf="@id/imageViewA"
+        android:transitionName="@string/transitionName_imageB"/>
 </RelativeLayout>
