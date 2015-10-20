@@ -1,4 +1,4 @@
-package com.liwshuo.animation;
+package com.liwshuo.animation.util;
 
 import android.content.Context;
 import android.widget.ImageView;

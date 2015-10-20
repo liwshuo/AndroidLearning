@@ -11,31 +11,42 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.liwshuo.animation.R;
+import com.liwshuo.animation.util.ConstantValue;
+import com.liwshuo.animation.util.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class DetailFragment extends Fragment {
-    static List<Integer> data = new ArrayList<>();
-    static {
-        data.add(R.drawable.imagea);
-        data.add(R.drawable.imageb);
-        data.add(R.drawable.imagec);
-        data.add(R.drawable.imaged);
-        data.add(R.drawable.imagee);
-        data.add(R.drawable.imagef);
-    }
+    private List<Integer> data;
+    int id;
+    String transitionName;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Bundle bundle = getArguments();
-        String transitionName = "";
-        int id = 0;
-        if (bundle != null) {
-            transitionName = bundle.getString("transitionName");
-            id = bundle.getInt("id");
-        }
+        initData();
+        getDataFromGridFragment();
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
+        initFragmentView(view);
+        return view;
+    }
+
+    private void initData() {
+        data = Data.getImageList();
+    }
+
+    private void getDataFromGridFragment() {
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            transitionName = bundle.getString(ConstantValue.TRANSITION_NAME);
+            id = bundle.getInt(ConstantValue.ID);
+        }else {
+            transitionName = null;
+            id = 0;
+        }
+    }
+
+    private void initFragmentView(View view) {
         ImageView shareImage = (ImageView) view.findViewById(R.id.shareImage);
         shareImage.setTransitionName(transitionName);
         shareImage.setImageDrawable(getActivity().getDrawable(data.get(id)));
@@ -47,6 +58,5 @@ public class DetailFragment extends Fragment {
                 fragmentManager.popBackStack();
             }
         });
-        return view;
     }
 }

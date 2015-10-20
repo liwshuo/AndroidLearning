@@ -27,9 +27,11 @@
         </activity>
         <activity android:name=".transition.ShareElementActivityB" >
         </activity>
-        <activity android:name=".transition.ShareElementActivity" >
+        <activity android:name=".transition.ShareElementListActivity" >
         </activity>
         <activity android:name=".transition.ShareElementDetailActivity" >
+        </activity>
+        <activity android:name=".transition.ShareElementGridFragmentActivity" >
         </activity>
     </application>
 

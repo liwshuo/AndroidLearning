@@ -11,7 +11,8 @@ import com.liwshuo.animation.R;
 
 public class TransitionActivity extends AppCompatActivity implements View.OnClickListener{
     Button twoActivityTransitionButton;
-    Button listViewButton;
+    Button listButton;
+    Button gridFragmentButton;
     Button twoFragmentTransitionButton;
     Button imageViewButton;
     @Override
@@ -19,11 +20,13 @@ public class TransitionActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transition);
         twoActivityTransitionButton = (Button) findViewById(R.id.twoActivityTransitionButton);
-        listViewButton = (Button) findViewById(R.id.listViewButton);
+        listButton = (Button) findViewById(R.id.listButton);
         twoActivityTransitionButton.setOnClickListener(this);
-        listViewButton.setOnClickListener(this);
+        listButton.setOnClickListener(this);
         imageViewButton = (Button) findViewById(R.id.imageViewButton);
         imageViewButton.setOnClickListener(this);
+        gridFragmentButton = (Button) findViewById(R.id.gridFragmentButton);
+        gridFragmentButton.setOnClickListener(this);
     }
 
     @Override
@@ -33,12 +36,14 @@ public class TransitionActivity extends AppCompatActivity implements View.OnClic
             case R.id.twoActivityTransitionButton:
                 intent.setClass(TransitionActivity.this, TransitionActivityA.class);
                 break;
-            case R.id.listViewButton:
-                intent.setClass(TransitionActivity.this, ShareElementActivity.class);
+            case R.id.listButton:
+                intent.setClass(TransitionActivity.this, ShareElementListActivity.class);
                 break;
             case R.id.imageViewButton:
                 intent.setClass(TransitionActivity.this, ShareElementActivityA.class);
                 break;
+            case R.id.gridFragmentButton:
+                intent.setClass(TransitionActivity.this, ShareElementGridFragmentActivity.class);
         }
         startActivity(intent);
     }
