@@ -1,6 +1,7 @@
 package com.liwshuo.animation.util;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.widget.ImageView;
 
 /**
@@ -26,8 +27,15 @@ public class ImageLoader {
     }
 
     public void load(int resId, ImageView imageView) {
-        final BitmapWorkerTask task = new BitmapWorkerTask(context, imageView);
-        task.execute(BitmapWorkerTask.LOCAL, resId);
+        String imageKey = String.valueOf(resId);
+        Bitmap bitmap = MemoryCache.getMemoryCache().getBitmapFromMemCache(imageKey);
+        if (bitmap != null) {
+            imageView.setImageBitmap(bitmap);
+        } else {
+            final BitmapWorkerTask task = new BitmapWorkerTask(context, imageView);
+            task.execute(String.valueOf(BitmapWorkerTask.LOCAL), String.valueOf(resId));
+        }
+
     }
 
 

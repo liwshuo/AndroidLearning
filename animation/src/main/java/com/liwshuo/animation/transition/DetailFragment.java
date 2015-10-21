@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import com.liwshuo.animation.R;
 import com.liwshuo.animation.util.ConstantValue;
 import com.liwshuo.animation.util.Data;
+import com.liwshuo.animation.util.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +59,7 @@ public class DetailFragment extends Fragment {
     private void initFragmentView(View view) {
         ImageView shareImage = (ImageView) view.findViewById(R.id.shareImage);
         shareImage.setTransitionName(transitionName);
-        shareImage.setImageDrawable(getActivity().getDrawable(data.get(id)));
+        ImageLoader.getInstance(getActivity()).load(data.get(id), shareImage);
         shareImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

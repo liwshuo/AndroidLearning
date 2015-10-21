@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.liwshuo.animation.R;
 import com.liwshuo.animation.util.ConstantValue;
 import com.liwshuo.animation.util.Data;
+import com.liwshuo.animation.util.ImageLoader;
+import com.liwshuo.animation.util.MemoryCache;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +73,7 @@ public class ShareElementDetailActivity extends AppCompatActivity {
     private void initShareImage() {
         shareImage = (ImageView) findViewById(R.id.shareImage);
         shareImage.setTransitionName(transitionImageName);
-        shareImage.setImageBitmap(BitmapFactory.decodeResource(getResources(), data.get(id)));
+        ImageLoader.getInstance(this).load(data.get(id),shareImage);
     }
 
     private void initImageName() {

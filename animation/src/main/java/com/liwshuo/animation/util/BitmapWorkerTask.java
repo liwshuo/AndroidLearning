@@ -12,7 +12,7 @@ import java.lang.ref.WeakReference;
 /**
  * Created by 硕 on 2015/10/20.
  */
-public class BitmapWorkerTask extends AsyncTask<Object, Void, Bitmap> {
+public class BitmapWorkerTask extends AsyncTask<String, Void, Bitmap> {
 
     public static final int LOCAL = 0;
     public static final int NETWORK = 1;
@@ -24,13 +24,15 @@ public class BitmapWorkerTask extends AsyncTask<Object, Void, Bitmap> {
     }
 
     @Override
-    protected Bitmap doInBackground(Object... params) {
-        int source = (Integer) params[0];
+    protected Bitmap doInBackground(String... params) {
+        int source = Integer.valueOf(params[0]);
+        String sourceAddr = params[1];
         Bitmap bitmap = null;
         switch (source) {
             case LOCAL:
-                bitmap = getBitmapFromLocal(context, (Integer) params[1]);
+                bitmap = getBitmapFromLocal(context, Integer.parseInt(sourceAddr));
         }
+        MemoryCache.getMemoryCache().addBitmapToMemoryCache(sourceAddr, bitmap);
         return bitmap;
     }
 
