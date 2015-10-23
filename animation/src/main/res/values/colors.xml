@@ -7,4 +7,5 @@
     <color name="buttonColor">#26ae90</color>
     <color name="textViewColor">#0066cc</color>
     <color name="textViewTextColor">#ffffcc</color>
+    <color name="white">#ffffff</color>
 </resources>

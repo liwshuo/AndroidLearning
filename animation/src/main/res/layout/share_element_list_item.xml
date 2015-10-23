@@ -6,10 +6,14 @@
     <ImageView
         android:id="@+id/shareImage"
         android:layout_width="50dp"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"/>
     <TextView
         android:id="@+id/imageName"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        />
 </LinearLayout>
