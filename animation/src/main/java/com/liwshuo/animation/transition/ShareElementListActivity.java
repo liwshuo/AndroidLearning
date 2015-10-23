@@ -14,6 +14,11 @@ import android.view.Window;
 
 import com.liwshuo.animation.R;
 
+/**
+ * 学习动态设置share element
+ * 使用recyclerview的list模式展现图片和文本信息
+ * 点击图片后，相应的图片和其文本信息会执行share element的transition动画
+ */
 public class ShareElementListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter shareElementAdapter;
@@ -27,6 +32,9 @@ public class ShareElementListActivity extends AppCompatActivity {
         initRecyclerView();
     }
 
+    /**
+     * 设置transition属性
+     */
     private void setTransition() {
         Transition imageViewTransiton = TransitionInflater.from(this).inflateTransition(R.transition.image_change);
         getWindow().setSharedElementExitTransition(imageViewTransiton);
@@ -35,6 +43,9 @@ public class ShareElementListActivity extends AppCompatActivity {
         getWindow().setReenterTransition(new Fade());
     }
 
+    /**
+     * 初始化recyclerview，通过linearLayoutmanager设置为垂直的list模式
+     */
     private void initRecyclerView() {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);

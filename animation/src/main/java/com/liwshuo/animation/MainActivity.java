@@ -9,6 +9,9 @@ import android.widget.Button;
 
 import com.liwshuo.animation.transition.TransitionActivity;
 
+/**
+ * 主界面animatin和transition的入口
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button twoViewSwitchAnimationButton;
@@ -28,9 +31,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         Intent intent = new Intent();
         switch (view.getId()) {
+            //animation的入口
             case R.id.twoViewSwitchAnimationButton:
                 intent.setClass(MainActivity.this, TwoViewSwitchAnimationActivity.class);
                 break;
+            //transition的入口
             case R.id.transitionButton:
                 intent.setClass(MainActivity.this, TransitionActivity.class);
                 break;

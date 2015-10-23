@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+/**
+ * animation入口，分为多种animation
+ */
 public class TwoViewSwitchAnimationActivity extends AppCompatActivity implements View.OnClickListener {
     ImageView imageViewA;
     ImageView imageViewB;

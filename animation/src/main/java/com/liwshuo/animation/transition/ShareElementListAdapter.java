@@ -25,6 +25,7 @@ import java.util.List;
 
 /**
  * Created by liwshuo on 2015/10/19.
+ * ShareElementListActivity中的recycerview的adapter，负责展现图片和文本信息以及动态设置transition
  */
 public class ShareElementListAdapter extends RecyclerView.Adapter {
 
